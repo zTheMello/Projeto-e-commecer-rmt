@@ -1,0 +1,180 @@
+/* RESET útil */
+* { box-sizing: border-box; }
+
+/* Barra fixa no topo */
+.barra-inicial {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;            /* cor da barra (mude se quiser) */
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* Contêiner que envolve o conteúdo da barra */
+.barra-inicial .header-bar,
+.barra-inicial .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;                /* ajuste a altura */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 18px;
+  width: 100%;
+}
+
+/* Garante que a linha interna use flex (em caso de wrappers extras) */
+.barra-inicial .header-bar.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Logo (fixo à esquerda) */
+.header__logo {
+  flex: 0 0 auto;
+}
+.header__logo a {
+  color: #00ff99;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Esses spans empurram o conteúdo para centrar a busca */
+.push-both-sides {
+  flex: 1 1 auto;
+  min-width: 8px;
+}
+
+/* Caixa de busca (vai crescer até um limite) */
+.header__search {
+  flex: 0 1 420px; /* permite encolher em telas pequenas */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.search__box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.header__search input {
+  width: 100%;
+  max-width: 420px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  outline: none;
+}
+.header__search .key-button--enter {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #00ff99;
+  color: #081010;
+  font-weight: 600;
+}
+
+/* Menu principal e ação: tornar os ULs horizontais */
+.header__main-menu ul,
+.header__action-menu ul {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.header__main-menu li,
+.header__action-menu li {
+  list-style: none;
+}
+.header__main-menu a,
+.header__action-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+}
+.header__main-menu a:hover,
+.header__action-menu a:hover {
+  color: #00ff99;
+}
+
+/* Ícones / botões à direita */
+.header__notification,
+.header__cart,
+.header__account {
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+.header__notification i,
+.header__cart i,
+.header__account i {
+  cursor: pointer;
+  font-style: normal;
+  display: inline-block;
+  padding: 6px 8px;
+}
+
+.header__notification i,
+.header__cart i,
+.header__account i {
+  background: #00ff99;   /* verde neon */
+  color: #111;           /* texto/ícone escuro para contraste */
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-style: normal; /* para não ficar em itálico */
+}
+
+/* Hover (efeito ao passar o mouse) */
+.header__notification i:hover,
+.header__cart i:hover,
+.header__account i:hover {
+  background: #00cc77;   /* verde mais escuro */
+  color: #fff;
+}
+
+
+/* Espaçamento do body para a barra fixa */
+body {
+  margin: 0;
+  padding-top: 70px; /* mesmo valor da altura da barra */
+  background: (green);
+  background: radial-gradient(circle at center,#111, #00ff99, #111);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+main {
+    color: lightblue;
+}
+
+footer {
+    background-color: black;
+    color: lightgreen;
+}
+
+
+/* Responsividade simples */
+@media (max-width: 900px) {
+  .header__search { flex: 1 1 250px; max-width: 300px; }
+  .header__search input { max-width: 300px; }
+  .header__main-menu ul { gap: 10px; font-size: 14px; }
+}
+@media (max-width: 600px) {
+  /* Em telas pequenas escondemos itens e deixamos só logo + menu ícones */
+  .header__main-menu, .header__action-menu { display: none; }
+  .header__search { display: none; }
+}

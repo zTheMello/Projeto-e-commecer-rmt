@@ -1,0 +1,186 @@
+/* Reset e estilos básicos */
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Faz a página usar flexbox para empurrar o rodapé */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Conteúdo principal da página */
+main {
+    flex: 1; /* ocupa todo o espaço disponível */
+}
+
+/* Rodapé */
+.informações-do-roda-pe {
+    background: linear-gradient(135deg, #262727, #3c3d3d);
+    color: #333;
+    padding: 40px 20px;
+    border-top: 1px solid #2a2a2b;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+/* Container interno */
+.content-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Linha do conteúdo */
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Widgets individuais */
+.widget {
+    flex: 1 1 200px;
+    padding: 0 15px;
+}
+
+/* Coluna esquerda (Sobre / Logo) */
+.row > .col-xl-6:first-child {
+    flex: 1 1 300px;
+}
+
+/* Coluna direita (Widgets) */
+.row > .col-xl-6:last-child {
+    flex: 2 1 600px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Títulos */
+.title-widget {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #03fdb2;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.title-widget::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #2ecc71;
+    border-radius: 2px;
+}
+
+/* Texto e links */
+.text-widget p,
+.text-widget ul li a {
+    color: lightgreen;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.text-widget ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.text-widget ul li {
+    margin-bottom: 4px;
+}
+
+.text-widget ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 3px 0;
+    transition: all 0.3s;
+}
+
+.text-widget ul li a:hover {
+    color: #2ecc71;
+    padding-left: 5px;
+}
+
+/* Resumo do site */
+.website-summary a {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.website-summary a:hover {
+    color: #2ecc71;
+}
+
+/* Redes sociais */
+.hun-element-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    background-color: #27ae60;
+    transform: translateY(-4px) scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .content-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row > .col-xl-6:first-child,
+    .row > .col-xl-6:last-child {
+        width: 100%;
+        padding: 10px 0;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .row > .col-xl-6:last-child {
+        gap: 20px;
+    }
+
+    .widget {
+        width: 10
+    }
