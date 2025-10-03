@@ -1,24 +1,25 @@
 /* RESET útil */
 * { box-sizing: border-box; }
 
-/* Barra fixa no topo */
+/* ===== Barra fixa no topo com blur ===== */
 .barra-inicial {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #111;            /* cor da barra (mude se quiser) */
-  color: #fff;
+  background: rgba(13,13,13,0.85); /* semitransparente */
+  backdrop-filter: blur(10px);      /* blur estilo vidro */
+  color: #eaeaea;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
-/* Contêiner que envolve o conteúdo da barra */
+/* Contêiner da barra */
 .barra-inicial .header-bar,
 .barra-inicial .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  height: 70px;                /* ajuste a altura */
+  height: 70px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -26,33 +27,23 @@
   width: 100%;
 }
 
-/* Garante que a linha interna use flex (em caso de wrappers extras) */
-.barra-inicial .header-bar.container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-/* Logo (fixo à esquerda) */
-.header__logo {
-  flex: 0 0 auto;
-}
+/* Logo */
 .header__logo a {
-  color: #00ff99;
+  color: #00ff99; /* neon verde */
   font-weight: 700;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
-/* Esses spans empurram o conteúdo para centrar a busca */
+/* Espaçadores flex */
 .push-both-sides {
   flex: 1 1 auto;
   min-width: 8px;
 }
 
-/* Caixa de busca (vai crescer até um limite) */
+/* Caixa de busca */
 .header__search {
-  flex: 0 1 420px; /* permite encolher em telas pequenas */
+  flex: 0 1 420px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -61,6 +52,9 @@
   display: flex;
   align-items: center;
   width: 100%;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 4px 8px;
 }
 .header__search input {
   width: 100%;
@@ -68,21 +62,12 @@
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03);
-  color: #fff;
+  background: transparent;
+  color: #eaeaea;
   outline: none;
 }
-.header__search .key-button--enter {
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  background: #00ff99;
-  color: #081010;
-  font-weight: 600;
-}
 
-/* Menu principal e ação: tornar os ULs horizontais */
+/* Menu principal e ação */
 .header__main-menu ul,
 .header__action-menu ul {
   display: flex;
@@ -91,81 +76,183 @@
   padding: 0;
   align-items: center;
 }
-.header__main-menu li,
-.header__action-menu li {
-  list-style: none;
-}
 .header__main-menu a,
 .header__action-menu a {
-  color: #fff;
+  color: #eaeaea;
   text-decoration: none;
   font-weight: 500;
-  display: inline-block;
+  transition: color 0.2s ease;
 }
 .header__main-menu a:hover,
 .header__action-menu a:hover {
-  color: #00ff99;
+  color: #00ff99; /* neon */
 }
 
-/* Ícones / botões à direita */
-.header__notification,
-.header__cart,
-.header__account {
-  flex: 0 0 auto;
-  margin-left: 8px;
-}
+/* Botões ícones à direita */
 .header__notification i,
 .header__cart i,
 .header__account i {
-  cursor: pointer;
-  font-style: normal;
-  display: inline-block;
-  padding: 6px 8px;
-}
-
-.header__notification i,
-.header__cart i,
-.header__account i {
-  background: #00ff99;   /* verde neon */
-  color: #111;           /* texto/ícone escuro para contraste */
-  border-radius: 6px;
+  background: #00ff99; /* neon */
+  color: #111;
+  border-radius: 8px;
   padding: 8px 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-style: normal; /* para não ficar em itálico */
 }
-
-/* Hover (efeito ao passar o mouse) */
 .header__notification i:hover,
 .header__cart i:hover,
 .header__account i:hover {
-  background: #00cc77;   /* verde mais escuro */
+  background: #00cc77; /* neon escuro */
   color: #fff;
 }
 
-
-/* Espaçamento do body para a barra fixa */
+/* Ajuste body */
 body {
   margin: 0;
-  padding-top: 70px; /* mesmo valor da altura da barra */
-  background: (green);
-  background: radial-gradient(circle at center,#111, #00ff99, #111);
+  padding-top: 70px; /* espaço para barra fixa */
+  background: radial-gradient(circle at center, #111, #00ff99, #111);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
 
+/* ===== MAIN ===== */
 main {
-    color: lightblue;
+  padding: 20px;
+  background: #0d0d0d; /* fundo dark para destacar o neon */
+  font-family: Arial, sans-serif;
+  color: #eaeaea;
 }
 
-footer {
-    background-color: black;
-    color: lightgreen;
+/* ===== Categorias ===== */
+.categorias {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
+.categorias ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.categorias li a {
+  text-decoration: none;
+  color: #0f0; /* verde neon */
+  background: transparent;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid #0f0;
+  transition: 0.3s;
+}
+
+.categorias li a:hover {
+  background: #0f0;
+  color: #000;
+}
+
+/* ===== Grid de Produtos ===== */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* ===== Card Produto ===== */
+.produto {
+  background: #1a1a1a;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+}
+
+.produto img {
+  max-width: 100%;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.produtos {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #0f0;
+  text-align: left;
+}
+
+.produto h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #0f0;
+}
+
+.produto .descricao {
+  font-size: 14px;
+  color: #aaa;
+  margin: 5px 0 10px;
+}
+
+.produto .preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0f0;
+  margin-bottom: 15px;
+}
+
+/* Botão Comprar */
+.produto button {
+  background: #0f0;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.produto button:hover {
+  background: #b3ffb3;
+}
+
+/* ===== Tags (Promoção / Destaque) ===== */
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #0f0;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.tag.destaque {
+  background: #00ff99;
+  color: #000;
+}
+
+.tag.promocao {
+  background: #39ff14; /* neon green */
+  color: #000;
+}
 
 /* Responsividade simples */
 @media (max-width: 900px) {
@@ -178,3 +265,4 @@ footer {
   .header__main-menu, .header__action-menu { display: none; }
   .header__search { display: none; }
 }
+
